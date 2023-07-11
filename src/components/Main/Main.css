@@ -1,0 +1,85 @@
+.review {
+    padding: 0 32px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.review-title {
+    font-size: 32px;
+    font-weight: 600;
+    text-align: center;
+    margin: 32px 0;
+}
+.review-item {
+    border: 3px solid #4CAF50;
+    border-radius: 16px;
+    padding: 16px 28px;
+    margin-bottom: 16px;
+    width: 50vw;
+}
+.review-item:last-child {
+    margin-bottom: 0;
+}
+
+.review-item-name {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.review-item-text {
+    font-size: 20px;
+    font-weight: normal;
+    text-align: left;
+    margin-bottom: 8px;
+}
+.review-item-date {
+    text-align: right;
+    font-weight: 600;
+    font-size: 18px;
+    color: #808080;
+}
+
+.pag-container {
+    margin: 32px 0;
+}
+
+.pag-container {
+    display: inline-block;
+}
+.pagination-item {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+.pagination-item:hover {
+    cursor: pointer;
+}
+.pagination-active {
+    background-color: #4CAF50;
+    color: white;
+}
+.arrow::before {
+    position: relative;
+    content: '';
+    display: inline-block;
+    width: 0.4em;
+    height: 0.4em;
+    border-right: 0.12em solid rgba(0, 0, 0, 0.87);
+    border-top: 0.12em solid rgba(0, 0, 0, 0.87);
+}
+.arrow.left {
+    transform: rotate(-135deg) translate(-50%);
+}
+.arrow.right {
+    transform: rotate(45deg);
+}
+.arrow.left:hover {
+    transform: rotate(-135deg) translate(-50%) scale(1.5);
+}
+.arrow.right:hover {
+    transform: rotate(45deg) scale(1.5)
+}
