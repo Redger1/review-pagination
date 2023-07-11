@@ -7,6 +7,7 @@ import "./Main.css"
 
 interface SortedReviews { [key: string]: ReviewType }
 interface Props { language: LanguageTypes }
+type FormatNameType = { name: string, surname: string } | string
 
 type ReviewType = {
     name: string,
@@ -42,7 +43,6 @@ class MainBlock extends Component<Props, any> {
         }
         else {
             const { maxPage, dataArray } = this.makeClusters()
-            console.log("maxPage:", maxPage)
             this.setState(() => ({
                 sortedReviews: [...dataArray],
                 maxPage: maxPage,
@@ -83,6 +83,13 @@ class MainBlock extends Component<Props, any> {
 
     render() {
         const dataByLng = reviewData[this.props.language]
+        const formatName = (fullName: string): FormatNameType => {
+            if (!fullName.includes(" ")) return fullName
+
+            const name = fullName.split(" ")[1].slice(0, 1) + "."
+            const surname = fullName.split(" ")[0]
+            return { name, surname }
+        }
 
         return (
             <main className='review'>
@@ -92,10 +99,14 @@ class MainBlock extends Component<Props, any> {
                     {this.state.sortedReviews.length > 0 && Object.keys(this.state.sortedReviews[this.state.currentPage - 1]).map((reviewKey) => {
                         type DataKeyType = keyof typeof dataByLng
                         const reviewItem: ReviewType = this.state.sortedReviews[this.state.currentPage - 1][reviewKey as DataKeyType]
+                        const formattedName = formatName(reviewItem.name)
 
                         return (
                             <div className='review-item'>
-                                <p className='review-item-name'>{reviewItem.name}</p>
+                                {/* <p className='review-item-name'>{name + " " + surname}</p> */}
+                                <p className='review-item-name'>
+                                    {typeof formattedName === 'string' ? formattedName : formattedName.surname + " " + formattedName.name}
+                                </p>
                                 <p className='review-item-text'>{reviewItem.review}</p>
                                 <p className='review-item-date'>{reviewItem.date}</p>
                             </div>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './Header.css'
 import HeaderLogo from './HeaderLogo'
-import Clock from './Clock'
+import Watch from './Watch'
 import LanguageSelector from './LanguageSelector'
 
 export default class Header extends Component {
@@ -9,7 +9,7 @@ export default class Header extends Component {
 		return (
 			<header className='header'>
 				<HeaderLogo/>
-				<Clock/>
+				<Watch/>
 				<LanguageSelector/>
 			</header>
 		)

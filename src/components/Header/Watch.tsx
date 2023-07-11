@@ -7,7 +7,7 @@ interface Props extends ClockSliceState {
     updateTime: () => void
 }
 
-class Clock extends Component<Props> {
+class Watch extends Component<Props> {
     intervalId: NodeJS.Timer | undefined;
 
     componentDidMount(): void {
@@ -33,4 +33,4 @@ const mapStateToProps = (state: {clock: ClockSliceState}) => (
     { timeNow: state.clock.timeNow }
 )
 
-export default connect(mapStateToProps, { updateTime })(Clock)
+export default connect(mapStateToProps, { updateTime })(Watch)
